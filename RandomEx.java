@@ -1,0 +1,9 @@
+import java.util.Random;
+
+public class RandomEx {
+
+	public static void main(String[] args) {
+		System.out.println(new Random().nextInt(13)+1);
+	}
+
+}

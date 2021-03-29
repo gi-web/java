@@ -1,0 +1,46 @@
+01 : package ch15;
+02 : 
+03 : import java.io.BufferedReader;
+04 : import java.io.FileInputStream;
+05 : import java.io.FileOutputStream;
+06 : import java.io.InputStreamReader;
+07 : import java.io.PrintStream;
+08 : 
+09 : public class LineNumEx1 {
+10 : 	public static void main(String[] args) {
+11 : 		try {
+12 : 			FileInputStream fis = 
+13 : 					new FileInputStream("ch15/LineNumEx1.java");
+14 : 			BufferedReader br = 
+15 : 					new BufferedReader(
+16 : 							new InputStreamReader(fis));
+17 : 			FileOutputStream fos = 
+18 : 					new FileOutputStream("ch15/LineNumEx1.txt");
+19 : 			//다목적 출력스트림
+20 : 			PrintStream ps = new PrintStream(fos);
+21 : 			/////////////////////////////////////////////
+22 : 			String s = "";
+23 : 			int i  = 1;
+24 : 			while(true) {
+25 : 				s = br.readLine();
+26 : 				if(s==null) break;
+27 : 				if(i<10)
+28 : 					s = "0"+i+" : " + s;
+29 : 				else
+30 : 					s = i+" : " + s;
+31 : 				ps.println(s);
+32 : 				i++;
+33 : 			}//---while
+34 : 			System.out.println("성공~~~~~");
+35 : 			ps.close();
+36 : 			br.close();
+37 : 		} catch (Exception e) {
+38 : 			e.printStackTrace();
+39 : 		}
+40 : 	}
+41 : }
+42 : 
+43 : 
+44 : 
+45 : 
+46 : 
